@@ -1,0 +1,56 @@
+interface Shape {
+    Shape clone();
+}
+
+class Rectangle implements Shape {
+    private int width;
+    private int height;
+
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    @Override
+    public Shape clone() {
+        return new Rectangle(width, height);
+    }
+}
+
+class Square implements Shape {
+    private int length;
+
+    public Square(int length) {
+        this.length = length;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    @Override
+    public Shape clone() {
+        return new Square(length);
+    }
+}
+
+class Test {
+
+    public List<Shape> cloneShapes(List<Shape> shapes) {
+        List<Shape> clonedShapes = new ArrayList<>();
+
+        for (Shape shape : shapes) {
+            clonedShapes.add(shape.clone());
+        }
+
+        return clonedShapes;
+    }
+}
