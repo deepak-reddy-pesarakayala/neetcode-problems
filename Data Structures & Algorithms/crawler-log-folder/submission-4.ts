@@ -1,0 +1,13 @@
+class Solution {
+    minOperations(logs: string[]): number {
+        let depth = 0;
+        for (const log of logs) {
+            if (log === "../") {
+                if (depth > 0) depth--;
+            } else if (log !== "./") {
+                depth++;
+            }
+        }
+        return depth;
+    }
+}
